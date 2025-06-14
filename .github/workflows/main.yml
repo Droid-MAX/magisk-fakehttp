@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+    inputs:
+      force_release:
+        description: 'Force release even if no FakeHTTP update is available'
+        required: false
+        default: false
+        type: boolean
+  repository_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Build
+        run: |
+          uv run python3 main.py
+          echo "NEW_TAG=$(cat NEW_TAG.txt)" >> $GITHUB_ENV
+        env:
+          FORCE_RELEASE: ${{ github.event.inputs.force_release }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: build/
+
+      - name: Release
+        if: hashFiles('NEW_TAG.txt') != ''
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: build/*.zip,build/updater.json
+          tag: "${{ env.NEW_TAG }}"
+          body: https://github.com/MikeWang000000/FakeHTTP/releases
