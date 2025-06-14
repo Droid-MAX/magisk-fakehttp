@@ -43,10 +43,13 @@ def download_file(url: str, path: Path):
 def extract_file(archive_path: Path, dest_path: Path):
     logger.info(f"Extracting '{archive_path.name}' to '{dest_path.name}'")
 
-    with tarfile.open(archive_path) as f:
-        file_content = f.read()
-        path = dest_path.parent
+    with tarfile.open(archive_path) as tar:
+        for member in tar.getmembers():
+            if member.name.endswith("fakehttp") and member.isfile():
+                with tar.extractfile(member) as f:
+                    file_content = f.read()
 
+        path = dest_path.parent
         path.mkdir(parents=True, exist_ok=True)
 
         with open(dest_path, "wb") as out:
