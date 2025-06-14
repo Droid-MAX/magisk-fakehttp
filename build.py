@@ -63,23 +63,20 @@ def generate_version_code(project_tag: str) -> int:
 
 
 def create_module_prop(path: Path, project_tag: str):
-    module_prop = f"""
-id=magisk-fakehttp
+    module_prop = f"""id=magisk-fakehttp
 name=MagiskFakehttp
 version={project_tag}
 versionCode={generate_version_code(project_tag)}
 author=Mike Wang & Droid-MAX
 updateJson=https://github.com/Droid-MAX/magisk-fakehttp/releases/latest/download/updater.json
-description=Run fakehttp on boot
-"""
+description=Run fakehttp on boot"""
 
     with open(path.joinpath("module.prop"), "w", newline="\n") as f:
         f.write(module_prop)
 
 
 def create_module_conf(path: Path):
-    module_conf = '''
-#!/system/bin/sh
+    module_conf = '''#!/system/bin/sh
 
 # network interface name (required)
 interface="wlan0"
@@ -96,8 +93,7 @@ hostname="www.speedtest.cn"
 # write log to <file> instead of stderr
 logfile="/sdcard/.fakehttp.log"
 # TTL for generated packets (default: 3)
-#ttl=""
-'''
+#ttl=""'''
 
     with open(path.joinpath("fakehttp.conf"), "w", newline="\n") as f:
         f.write(module_conf)
