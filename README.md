@@ -28,7 +28,7 @@ Instant! This module is hooked up to the official FakeHTTP build process
 
 ## Issues?
 
-Check out the [troubleshooting guide](TROUBLESHOOTING.md)
+Please feel free to [open a issues](https://github.com/Droid-MAX/magisk-fakehttp/issues/new/choose)
 
 ## Building yourself
 
