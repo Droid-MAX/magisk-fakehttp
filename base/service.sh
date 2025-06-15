@@ -25,6 +25,7 @@ load_config() {
         interface="wlan0"
         hostname="www.speedtest.cn"
         logfile="/sdcard/.fakehttp.log"
+        silent="1"
         return 0
     fi
 }
@@ -41,6 +42,7 @@ set -- -d -z
 [ -n "${repeat+x}" ] && set -- "$@" "-r" "$repeat"
 [ -n "${payload+x}" ] && set -- "$@" "-b" "$payload"
 [ -n "${logfile+x}" ] && set -- "$@" "-w" "$logfile"
+[ -n "${silent+x}" ] && [ "$silent" -eq 1 ] && set -- "$@" "-s"
 [ -n "${ttl+x}" ] && set -- "$@" "-t" "$ttl"
 
 $MODPATH/bin/fakehttp "$@"

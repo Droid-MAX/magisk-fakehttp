@@ -94,6 +94,8 @@ hostname="www.speedtest.cn"
 #payload=""
 # write log to <file> instead of stderr
 logfile="/sdcard/.fakehttp.log"
+# silent mode
+silent="1"
 # TTL for generated packets (default: auto)
 #ttl=""'''
 
