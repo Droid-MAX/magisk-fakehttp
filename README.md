@@ -18,7 +18,7 @@
 
 ## Instructions
 
-Install `MagiskFakehttp.zip` from [the releases](https://github.com/Droid-MAX/magisk-fakehttp/releases)
+Install `MagiskFakehttp-[VERSION].zip` from [the releases](https://github.com/Droid-MAX/magisk-fakehttp/releases)
 
 > :information_source: Do not use the Magisk modules repository, it is obsolete and no longer receives updates
 
