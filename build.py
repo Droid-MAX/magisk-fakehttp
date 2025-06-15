@@ -90,9 +90,11 @@ hostname="www.speedtest.cn"
 #number=""
 # duplicate generated packets for <repeat> times
 #repeat=""
+# use TCP payload from binary file (ignore hostname)
+#payload=""
 # write log to <file> instead of stderr
 logfile="/sdcard/.fakehttp.log"
-# TTL for generated packets (default: 3)
+# TTL for generated packets (default: auto)
 #ttl=""'''
 
     with open(path.joinpath("fakehttp.conf"), "w", newline="\n") as f:

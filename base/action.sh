@@ -37,7 +37,7 @@ load_config() {
 
 load_config
 
-set -- -d
+set -- -d -z
 
 [ -n "${interface+x}" ] && set -- "$@" "-i" "$interface"
 [ -n "${hostname+x}" ] && set -- "$@" "-h" "$hostname"
@@ -45,6 +45,7 @@ set -- -d
 [ -n "${mask+x}" ] && set -- "$@" "-x" "$mask"
 [ -n "${number+x}" ] && set -- "$@" "-n" "$number"
 [ -n "${repeat+x}" ] && set -- "$@" "-r" "$repeat"
+[ -n "${payload+x}" ] && set -- "$@" "-b" "$payload"
 [ -n "${logfile+x}" ] && set -- "$@" "-w" "$logfile"
 [ -n "${ttl+x}" ] && set -- "$@" "-t" "$ttl"
 
