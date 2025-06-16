@@ -96,7 +96,7 @@ hostname="www.speedtest.cn"
 logfile="/sdcard/.fakehttp.log"
 # silent mode
 silent="1"
-# TTL for generated packets (default: auto)
+# TTL for generated packets (default: 3)
 #ttl=""'''
 
     with open(path.joinpath("fakehttp.conf"), "w", newline="\n") as f:
