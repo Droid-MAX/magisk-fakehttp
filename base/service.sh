@@ -34,7 +34,7 @@ load_config
 
 set -- -d -z
 
-[ -n "${interface+x}" ] && set -- "$@" "-i" "$interface"
+[ -n "${interface+x}" ] && { [ "$interface" == "all" ] && set -- "$@" -a || set -- "$@" -i "$interface"; }
 [ -n "${hostname+x}" ] && set -- "$@" "-h" "$hostname"
 [ -n "${mark+x}" ] && set -- "$@" "-m" "$mark"
 [ -n "${mask+x}" ] && set -- "$@" "-x" "$mask"
