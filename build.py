@@ -97,7 +97,9 @@ logfile="/sdcard/.fakehttp.log"
 # silent mode
 silent="1"
 # TTL for generated packets (default: 3)
-#ttl=""'''
+#ttl=""
+# raise TTL dynamically to <pct>% of estimated hops
+#pct=""'''
 
     with open(path.joinpath("fakehttp.conf"), "w", newline="\n") as f:
         f.write(module_conf)
