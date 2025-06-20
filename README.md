@@ -39,3 +39,7 @@ uv run python3 main.py
 
 - Release ZIP will be under `/build`
 - fakehttp downloads will be under `/downloads`
+
+## License
+
+GNU General Public License v3.0
