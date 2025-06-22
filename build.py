@@ -82,23 +82,23 @@ def create_module_conf(path: Path):
 interface="wlan0"
 # hostname for obfuscation (required)
 hostname="www.speedtest.cn"
-# fwmark for bypassing the queue
+# fwmark for bypassing the queue (default: 0x8000)
 #mark=""
-# set the mask for fwmark
+# set the mask for fwmark (default: 0)
 #mask=""
-# netfilter queue number
+# netfilter queue number (default: 512)
 #number=""
-# duplicate generated packets for <repeat> times
+# duplicate generated packets for <repeat> times (default: 2)
 #repeat=""
-# use TCP payload from binary file (ignore hostname)
+# use TCP payload from binary file
 #payload=""
 # write log to <file> instead of stderr
 logfile="/sdcard/.fakehttp.log"
-# silent mode
+# silent mode (default: 0)
 silent="1"
 # TTL for generated packets (default: 3)
 #ttl=""
-# raise TTL dynamically to <pct>% of estimated hops
+# raise TTL dynamically to <pct>% of estimated hops (default: 0)
 #pct=""'''
 
     with open(path.joinpath("fakehttp.conf"), "w", newline="\n") as f:
